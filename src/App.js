@@ -67,7 +67,7 @@ function GlassCard({ children, className = "" }) {
 
 // --- Sticky Navigation ---
 function Nav() {
-  const items = ["About", "Projects", "Experience", "Testimonials", "Contact"];
+  const items = ["About", "Projects", "Experience", "Recommendations", "Contact"];
   return (
     <div className="sticky top-4 z-50 mx-auto max-w-6xl">
       <div className="mx-4 rounded-2xl border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-2xl shadow-lg">
@@ -93,7 +93,7 @@ function Nav() {
           {/* Replaced CTA with Ask AI button */}
           <Link
             to="/ask"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-gradient-to-r from-indigo-600/90 to-cyan-500/90 px-4 py-2 text-sm font-semibold text-white shadow hover:from-indigo-500 hover:to-cyan-400"
+            className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:from-indigo-500 hover:to-cyan-400"
           >
             Ask AI <ArrowRight size={16} />
           </Link>
@@ -127,12 +127,10 @@ function Hero() {
     <section id="hero" className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-6 px-4 md:mt-16 md:grid-cols-2">
       <GlassCard className="md:col-span-1">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white" style={{ fontFamily: 'Plus Jakarta Sans, ui-sans-serif' }}>
-          Elegant Glassmorphism Portfolio
+          Hello Curious Minds!
         </h1>
         <p className="mt-4 max-w-prose text-white/80" style={{ fontFamily: 'Sora, ui-sans-serif' }}>
-          A sleek, modern, and professional portfolio with ultra-transparent glass panels, smooth rounded corners,
-          and a subtle animated sheen. Built with React and Tailwind — fast, clean, and future‑friendly.
-        </p>
+          I am Anurag. A curious explorer of technology and a passionate Requirements Engineer. I blend a love for innovative solutions with a knack for turning complex ideas into reality. When I'm not shaping seamless user experiences, you'll find me exploring the latest tech trends or catching up on some anime and music. Welcome to my corner of the web. Let's dive in!  </p>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <a
             href="#projects"
@@ -141,16 +139,16 @@ function Hero() {
             View Projects
           </a>
           <a
-            href="#about"
+            href="/resume.pdf" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white/90 backdrop-blur hover:bg-white/20"
           >
-            Learn more
+            View Resume
           </a>
         </div>
         <div className="mt-8 flex gap-4 text-white/70">
-          <a href="https://github.com/anuragchavan" aria-label="GitHub" className="transition hover:text-white"><Github /></a>
-          <a href="https://www.linkedin.com/in/chavananurag/" aria-label="LinkedIn" className="transition hover:text-white"><Linkedin /></a>
-          <a href="https://www.xing.com/profile/Anurag_Chavan5/web_profiles" aria-label="Xing" className="transition hover:text-white"><XingIcon /></a>
+          <a href="https://github.com/anuragchavan" aria-label="GitHub" target="_blank" rel="noopener noreferrer" className="transition hover:text-white"><Github /></a>
+          <a href="https://www.linkedin.com/in/chavananurag/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="transition hover:text-white"><Linkedin /></a>
+          <a href="https://www.xing.com/profile/Anurag_Chavan5/web_profiles" aria-label="Xing" target="_blank" rel="noopener noreferrer" className="transition hover:text-white"><XingIcon /></a>
           <a href="mailto:anuragchavan366@gmail.com" aria-label="Mail" className="transition hover:text-white"><Mail /></a>
         </div>
       </GlassCard>
@@ -163,11 +161,11 @@ function Hero() {
           </div>
           <div className="rounded-2xl bg-white/15 p-4 backdrop-blur">
             <p className="text-xs uppercase tracking-wide text-white/70">Years Exp.</p>
-            <p className="mt-1 text-4xl font-extrabold text-white">3</p>
+            <p className="mt-1 text-4xl font-extrabold text-white">3+</p>
           </div>
           <div className="rounded-2xl bg-white/15 p-4 backdrop-blur sm:col-span-2">
             <p className="text-xs uppercase tracking-wide text-white/70">Focus</p>
-            <p className="mt-1 text-lg font-semibold text-white">UI/UX · Frontend · Product</p>
+            <p className="mt-1 text-lg font-semibold text-white">Requirements Engineering · Digital Products · Product Ownership · Product Management</p>
           </div>
         </div>
       </GlassCard>
@@ -243,9 +241,9 @@ function Projects() {
 // --- Experience ---
 function Experience() {
   const timeline = [
-    { role: "Senior Frontend Engineer", org: "Acme Inc.", time: "2024 — Present", points: ["Lead UI system", "Performance improvements", "Design reviews"] },
-    { role: "Product Engineer", org: "Pixel Labs", time: "2022 — 2024", points: ["Built Dashboards", "Animations", "A/B testing"] },
-    { role: "Frontend Dev", org: "Freelance", time: "2020 — 2022", points: ["Landing pages", "SPAs", "Design-to-code"] },
+    { role: "Working Student - Requirements Engineering", org: "Heidelberg Materials AG", time: "May 2024 - Present", points: ["Feature Documentations", "User Stories Mapping and Creation", "Refinement Support", "Release Planning"] },
+    { role: "Intern - Requirements Engineering", org: "Robert Bosch GmbH", time: "Oct 2023 - Mar 2024", points: ["RE Workflows Automatization","Interviewing", "Pain Points Identification", "Process Capability Assessment"] },
+    { role: "Associate - Product", org: "Purple Style Labs Pvt. Ltd.", time: "Nov 2020 - Sep 2022", points: ["ECommerce Product Management", "Product Roadmapping", "Backlog Management", "UI Testing"] },
   ];
 
   return (
@@ -273,27 +271,56 @@ function Experience() {
   );
 }
 
-// --- Testimonials ---
-function Testimonials() {
-  const quotes = [
-    { name: "Sara L.", text: "Delivered a beautiful, performant app ahead of schedule." },
-    { name: "Jon P.", text: "Attention to detail is outstanding. Great communication." },
-    { name: "Mina K.", text: "Design sense + engineering skills — rare combo!" },
+// --- Recommendations ---
+function Recommendations() {
+  const recos = [
+    {
+      name: "Laura Fuchs",
+      title: "Product Owner",
+      text:
+        "I had the chance to work closely with Anurag while he was supporting our product team as a working student in the role of Requirements Engineer—and he’s been fantastic from the start. He quickly stood out with how independently he worked and how thoughtfully he approached problems. He often spotted things early and came up with smart solutions before we even had to ask. His structured way of working, combined with a strong sense of ownership and attention to detail, made him a real asset to the team. On top of that, Anurag is just great to work with—reliable, curious, and always up for learning something new. I’m confident he’ll be a great addition to any product team out there."
+    },
+    {
+      name: "Raj Kawale",
+      title: "Product Manager",
+      text:
+        "Anurag is a really fun-loving person. Making people feel comfortable and accordingly achieve the task remains his best approach to any problem."
+    },
+    {
+      name: "Arushi Rana",
+      title: "Brand & Digital Marketing",
+      text:
+        "Anurag is extremely amiable to work with. Can manage to stay calm in a storm of workload and prioritise through logic. Always striving to learn the attributes of each function as to cater to them best. Never shy's away from teaching you hacks to make your life easier! Brings in a lot of humour to the table :)"
+    },
+    {
+      name: "Fatimah Rahmani",
+      title: "Talent Acquisition",
+      text:
+        "Anurag is a Champ overall. He worked in our prestigious organisation as an Intern. I found him a curious boy, a keen observer & go-getter. He did well during his internship. As a team member, Anurag earns my highest recommendation. Any employer will be lucky to have him in his organisation."
+    }
   ];
+
   return (
-    <section id="testimonials" className="mx-auto mt-16 max-w-6xl px-4">
+    <section id="recommendations" className="mx-auto mt-16 max-w-6xl px-4">
       <GlassCard>
-        <h2 className="mb-6 text-2xl font-bold tracking-tight text-white" style={{ fontFamily: 'Plus Jakarta Sans, ui-sans-serif' }}>Testimonials</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          {quotes.map((q) => (
-            <div key={q.name} className="rounded-2xl bg-white/10 p-4 backdrop-blur">
+        <h2
+          className="mb-6 text-2xl font-bold tracking-tight text-white"
+          style={{ fontFamily: 'Plus Jakarta Sans, ui-sans-serif' }}
+        >
+          Recommendations
+        </h2>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {recos.map((r, idx) => (
+            <div key={idx} className="rounded-2xl bg-white/10 p-4 backdrop-blur">
               <div className="mb-2 flex items-center gap-1 text-amber-400">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} size={16} fill="currentColor" />
                 ))}
               </div>
-              <p className="text-white">“{q.text}”</p>
-              <p className="mt-2 text-sm font-medium text-white/90">{q.name}</p>
+              <p className="text-white text-sm leading-relaxed">“{r.text}”</p>
+              <p className="mt-2 text-sm font-semibold text-white/90">{r.name}</p>
+              <p className="text-xs text-white/70">{r.title}</p>
             </div>
           ))}
         </div>
@@ -301,6 +328,7 @@ function Testimonials() {
     </section>
   );
 }
+
 
 // --- Contact ---
 function Contact() {
@@ -312,9 +340,9 @@ function Contact() {
             <h2 className="text-2xl font-bold tracking-tight text-white" style={{ fontFamily: 'Plus Jakarta Sans, ui-sans-serif' }}>Contact</h2>
             <p className="mt-2 text-white/80">Let’s build something great together. I’m open to freelance and full-time roles.</p>
             <div className="mt-4 flex gap-3 text-white/80">
-              <a href="https://github.com/anuragchavan" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Github size={18}/>GitHub</a>
-              <a href="https://www.linkedin.com/in/chavananurag/" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Linkedin size={18}/>LinkedIn</a>
-              <a href="https://www.xing.com/profile/Anurag_Chavan5/web_profiles" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><XingIcon size={18}/>Xing</a>
+              <a href="https://github.com/anuragchavan" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Github size={18}/>GitHub</a>
+              <a href="https://www.linkedin.com/in/chavananurag/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Linkedin size={18}/>LinkedIn</a>
+              <a href="https://www.xing.com/profile/Anurag_Chavan5/web_profiles" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><XingIcon size={18}/>Xing</a>
             </div>
           </div>
           <form className="space-y-3">
@@ -359,7 +387,7 @@ export default function App() {
               <About />
               <Projects />
               <Experience />
-              <Testimonials />
+              <Recommendations />
               <Contact />
             </main>
 
