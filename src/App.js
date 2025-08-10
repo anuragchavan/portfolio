@@ -1,6 +1,28 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, ExternalLink, ArrowRight, Star } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Star } from "lucide-react";
+import { Routes, Route } from "react-router-dom"; //
+import AskAnurag from "./pages/AskAnurag.jsx"; //
+import { Link } from 'react-router-dom'
+
+
+// Local Xing icon (Simple Icons SVG) — accepts `size` like lucide icons
+function XingIcon({ size = 20, ...props }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      width={size}
+      height={size}
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M13.898 0c-.402 0-.576.254-.723.54 0 0-7.483 13.272-7.74 13.748-.015.025-.015.057 0 .082l4.926 8.92c.146.283.327.546.723.546h4.68c.322 0 .452-.229.327-.472l-4.867-8.843a.08.08 0 0 1 0-.082l7.738-13.75C15.017.228 14.898 0 14.574 0zm-9.843 5.333c-.31 0-.457.208-.324.48l2.374 4.189a.08.08 0 0 1 0 .082l-3.74 6.64c-.137.242-.027.476.323.476h4.604c.395 0 .587-.256.735-.54l3.78-6.73a.08.08 0 0 0 0-.082L8.228 5.873c-.15-.285-.341-.54-.736-.54z"/>
+    </svg>
+  );
+}
 
 // --- Load better fonts (Plus Jakarta Sans + Sora) ---
 function FontLoader() {
@@ -50,24 +72,31 @@ function Nav() {
     <div className="sticky top-4 z-50 mx-auto max-w-6xl">
       <div className="mx-4 rounded-2xl border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-2xl shadow-lg">
         <div className="flex items-center justify-between">
-          <a href="#hero" className="font-bold tracking-tight text-white/90">MyPortfolio</a>
-          <nav className="hidden gap-6 md:flex">
+          {/* Brand -> always goes home */}
+          <Link to="/" className="font-bold tracking-tight text-white/90">
+            Anurag Chavan
+          </Link>
+
+          {/* Section links */}
+          <nav className="hidden md:flex items-center gap-6">
             {items.map((id) => (
               <a
                 key={id}
-                href={`#${id.toLowerCase()}`}
+                href={`/#${id.toLowerCase()}`}
                 className="text-sm text-white/70 transition hover:text-white"
               >
                 {id}
               </a>
             ))}
           </nav>
-          <a
-            href="#contact"
+
+          {/* Replaced CTA with Ask AI button */}
+          <Link
+            to="/ask"
             className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-gradient-to-r from-indigo-600/90 to-cyan-500/90 px-4 py-2 text-sm font-semibold text-white shadow hover:from-indigo-500 hover:to-cyan-400"
           >
-            Let’s talk <ArrowRight size={16} />
-          </a>
+            Ask AI <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </div>
@@ -119,10 +148,10 @@ function Hero() {
           </a>
         </div>
         <div className="mt-8 flex gap-4 text-white/70">
-          <a href="#" aria-label="GitHub" className="transition hover:text-white"><Github /></a>
-          <a href="#" aria-label="LinkedIn" className="transition hover:text-white"><Linkedin /></a>
-          <a href="#" aria-label="Twitter" className="transition hover:text-white"><Twitter /></a>
-          <a href="#contact" aria-label="Mail" className="transition hover:text-white"><Mail /></a>
+          <a href="https://github.com/anuragchavan" aria-label="GitHub" className="transition hover:text-white"><Github /></a>
+          <a href="https://www.linkedin.com/in/chavananurag/" aria-label="LinkedIn" className="transition hover:text-white"><Linkedin /></a>
+          <a href="https://www.xing.com/profile/Anurag_Chavan5/web_profiles" aria-label="Xing" className="transition hover:text-white"><XingIcon /></a>
+          <a href="mailto:anuragchavan366@gmail.com" aria-label="Mail" className="transition hover:text-white"><Mail /></a>
         </div>
       </GlassCard>
 
@@ -283,9 +312,9 @@ function Contact() {
             <h2 className="text-2xl font-bold tracking-tight text-white" style={{ fontFamily: 'Plus Jakarta Sans, ui-sans-serif' }}>Contact</h2>
             <p className="mt-2 text-white/80">Let’s build something great together. I’m open to freelance and full-time roles.</p>
             <div className="mt-4 flex gap-3 text-white/80">
-              <a href="#" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Github size={18}/>GitHub</a>
-              <a href="#" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Linkedin size={18}/>LinkedIn</a>
-              <a href="#" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Twitter size={18}/>Twitter</a>
+              <a href="https://github.com/anuragchavan" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Github size={18}/>GitHub</a>
+              <a href="https://www.linkedin.com/in/chavananurag/" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><Linkedin size={18}/>LinkedIn</a>
+              <a href="https://www.xing.com/profile/Anurag_Chavan5/web_profiles" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur hover:bg-white/20"><XingIcon size={18}/>Xing</a>
             </div>
           </div>
           <form className="space-y-3">
@@ -313,27 +342,50 @@ function Contact() {
 
 export default function App() {
   return (
-    <div className="min-h-screen text-white selection:bg-white/20" style={{ fontFamily: 'Plus Jakarta Sans, ui-sans-serif' }}>
-      <FontLoader />
-      <PastelBackground />
-      <header className="pt-6 md:pt-8">
-        <Nav />
-      </header>
+    <Routes>
+      {/* Homepage */}
+      <Route
+        path="/"
+        element={
+          <div className="min-h-screen text-white selection:bg-white/20" style={{ fontFamily: 'Plus Jakarta Sans, ui-sans-serif' }}>
+            <FontLoader />
+            <PastelBackground />
+            <header className="pt-6 md:pt-8">
+              <Nav />
+            </header>
 
-      <main className="pb-24">
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Testimonials />
-        <Contact />
-      </main>
+            <main className="pb-24">
+              <Hero />
+              <About />
+              <Projects />
+              <Experience />
+              <Testimonials />
+              <Contact />
+            </main>
 
-      <footer className="mx-auto max-w-6xl px-4 pb-16">
-        <div className="rounded-2xl border border-white/25 bg-white/10 p-4 text-center text-sm text-white/70 backdrop-blur-2xl">
-          © {new Date().getFullYear()} Your Name. Built with React & Tailwind.
-        </div>
-      </footer>
-    </div>
+            <footer className="mx-auto max-w-6xl px-4 pb-16">
+              <div className="rounded-2xl border border-white/25 bg-white/10 p-4 text-center text-sm text-white/70 backdrop-blur-2xl">
+                © {new Date().getFullYear()} Your Name. Built with React & Tailwind.
+              </div>
+            </footer>
+          </div>
+        }
+      />
+
+      {/* Ask Anurag page */}
+      <Route path="/ask" element={<AskAnurag />} />
+    </Routes>
   );
+}
+
+// --- Dev smoke tests (non-blocking) ---
+if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
+  try {
+    const el = React.createElement(XingIcon, {});
+    console.assert(el && el.type === XingIcon, 'XingIcon should render a valid React element');
+    console.assert(typeof GlassCard === 'function', 'GlassCard should be a function component');
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('Dev smoke tests failed:', err);
+  }
 }
